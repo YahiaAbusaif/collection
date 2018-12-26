@@ -1,0 +1,4 @@
+from 4634 req: AA Kres: 0 Dres: 0 
+from 4634 req: AB Kres: 0 Dres: 0 
+from 4634 req: AC Kres: 0 Dres: 0 
+from 4634 req: AD Kres: 0 Dres: 0 
