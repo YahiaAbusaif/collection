@@ -1,0 +1,14 @@
+Q1
+var TrpID = db.getCollection(“dbo.Trip”).find({Cost: {$gt:1500}},{ TripID: 1,_id: 0}).toArray();
+var MeID = db.getCollection(“dbo.Travel”).find {"$or":[{"TRID":{"$in":TrpID}}, {"Feedback":{"$gt":0}}]},{ MEID: 1,_id: 0}).toArray();
+db.getCollection(“dbo.Member”).find({ "MemberID": { "$in": MeID}});
+Q2
+var TmID1=db.getCollection("dbo.Compete").find ({{"Points":{"$gt":500},"Standing":{"$lt":8000}}},{"TEID":1,"_id":0}).toArray();
+var TmID2 =db.getCollection("dbo.Compete").find ({"Points":{"$gt":500}},{"TEID":1,"_id":0}).toArray();
+var TmID =db.getCollection("dbo.Team").find ({"$or":[{{"CoachID":{"$gt":500000}},{"TeamID":{"$in":TmID2}}},{"TeamID":{"$in":TmID1}}]},{"TeamID":1,"_id":0}).toArray();
+var MembID = db.getCollection("dbo.Participate").find({"TEID":{"$in": TmID }},{"MEID":1,"_id":0}).toArray();
+db.getCollection("dbo.Member").find({ "MemberID": { "$in": MembID }});
+Q3
+var TrlID = db.getCollection("dbo.Travel").find({Feedback: {$gt:20}},{TRID:1,_id:0}).toArray();
+var EmpID = db.getCollection("dbo.Trip").find({"TripID":{"$in": TrlID }},{ SupervisorID :1,_id:0}).toArray();
+db.getCollection("dbo.Employee").find({ "EmployeeID ": { "$in": EmpID }});

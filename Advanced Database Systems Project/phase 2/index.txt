@@ -1,0 +1,7 @@
+create index i1 on Trip(Cost) ;
+create index i2 on Travel(Feedback) ;
+create index i3 on Compete(Points) ;
+create index i4 on Compete(Standing) ;
+create index i5 on Team(CoachID) ;
+create index i6 on Employee(Salary) ;
+create index i7 on Employee(subervisor) ;

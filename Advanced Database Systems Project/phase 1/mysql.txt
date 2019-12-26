@@ -1,0 +1,194 @@
+CREATE DATABASE db;
+USE db; 
+
+CREATE TABLE `Member` (
+	`Member ID` INT AUTO_INCREMENT,
+	`SSN` INT UNIQUE,
+	`Name` varchar(255) ,
+	`Phone number` INT,
+	`Gender` varchar(5) NOT NULL,
+	`Nationality` varchar(255),
+	`City` varchar(255),
+	`Street` varchar(255),
+	`Birth Date` DATE,
+	PRIMARY KEY (`Member ID`)
+);
+
+CREATE TABLE `Participate` (
+	`MEID` INT NOT NULL,
+	`TEID` INT NOT NULL,
+	PRIMARY KEY (`MEID`,`TEID`)
+);
+
+CREATE TABLE `Dependent` (
+	`Dependent ID` INT NOT NULL,
+	`MEID` INT NOT NULL,
+	`Gender` varchar(5) NOT NULL,
+	`Name` varchar(255) NOT NULL,
+	`Relation` varchar(255),
+	`Birth Date` DATE,
+	PRIMARY KEY (`Dependent ID`,`MEID`)
+);
+
+CREATE TABLE `Team` (
+	`Team ID` INT NOT NULL AUTO_INCREMENT,
+	`SPID` INT NOT NULL,
+	`Name` VARCHAR(255) NOT NULL,
+	`Coach ID` INT NOT NULL,
+	PRIMARY KEY (`Team ID`,`SPID`)
+);
+
+CREATE TABLE `Employee` (
+	`Employee ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` varchar(255) NOT NULL,
+	`Gender` varchar(5) NOT NULL,
+	`Phone Number` INT UNIQUE,
+	`Salary` FLOAT NOT NULL,
+	`Start Date` DATE NOT NULL,
+	`End Date` DATE NOT NULL,
+	`SSN` INT NOT NULL UNIQUE,
+	`City` varchar(255) NOT NULL UNIQUE,
+	`Street` varchar(255) NOT NULL UNIQUE,
+	`subervisor` INT NOT NULL,
+	PRIMARY KEY (`Employee ID`)
+);
+
+CREATE TABLE `Trip` (
+	`Trip ID` INT NOT NULL AUTO_INCREMENT,
+	`Trip Date` DATE,
+	`Cost` FLOAT,
+	`Duration` TIME,
+	`Country` varchar(255),
+	`City` varchar(255),
+	`Street` varchar(255),
+	`SupervisorID` INT NOT NULL,
+	PRIMARY KEY (`Trip ID`)
+);
+
+CREATE TABLE `Travel` (
+	`MEID` INT NOT NULL,
+	`TRID` INT NOT NULL,
+	`Feedback` INT,
+	PRIMARY KEY (`MEID`,`TRID`)
+);
+
+CREATE TABLE `Party` (
+	`Party ID` INT NOT NULL AUTO_INCREMENT,
+	`Party Date` DATE,
+	`Budget` FLOAT,
+	`OrganizerID` INT NOT NULL,
+	PRIMARY KEY (`Party ID`)
+);
+
+CREATE TABLE `Training` (
+	`TEID` INT NOT NULL,
+	`ZOID` INT NOT NULL,
+	`Date` DATE,
+	`Start Time` TIME,
+	`End Time` TIME,
+	PRIMARY KEY (`TEID`,`ZOID`)
+);
+
+
+CREATE TABLE `Zone` (
+	`Zone ID` INT NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (`Zone ID`)
+);
+
+CREATE TABLE `Zone Sport` (
+	`ZOID` INT NOT NULL,
+	`SPID` INT NOT NULL,
+	PRIMARY KEY (`ZOID`,`SPID`)
+);
+
+CREATE TABLE `Sport` (
+	`Sport ID` INT NOT NULL AUTO_INCREMENT,
+	`Name` VARCHAR(255) NOT NULL UNIQUE,
+	PRIMARY KEY (`Sport ID`)
+);
+
+CREATE TABLE `Match` (
+	`Match ID` INT NOT NULL AUTO_INCREMENT,
+	`TOID` INT NOT NULL,
+	`SPID` INT NOT NULL,
+	`F Team ID` INT NOT NULL,
+	`S Team ID` INT NOT NULL,
+	`Date` DATE NOT NULL,
+	`Time` TIME NOT NULL,
+	`F Points` INT NOT NULL,
+	`S Points` INT NOT NULL,
+	`ZOID` INT NOT NULL,
+	PRIMARY KEY (`Match ID`,`TOID`,`SPID`)
+);
+
+CREATE TABLE `Compete` (
+	`TOID` INT NOT NULL,
+	`TEID` INT NOT NULL,
+	`Standing` INT NOT NULL,
+	`Points` INT NOT NULL,
+	PRIMARY KEY (`TOID`,`TEID`)
+);
+
+CREATE TABLE `Tournament` (
+	`Tournament ID` INT NOT NULL AUTO_INCREMENT,
+	`SPID` INT NOT NULL,
+	`Start Date` DATE,
+	PRIMARY KEY (`Tournament ID`,`SPID`)
+);
+
+
+ALTER TABLE `Participate` ADD CONSTRAINT `Participate _fk0` FOREIGN KEY (`MEID`) REFERENCES `Member`(`Member ID`);
+
+ALTER TABLE `Participate` ADD CONSTRAINT `Participate _fk1` FOREIGN KEY (`TEID`) REFERENCES `Team`(`Team ID`);
+
+ALTER TABLE `Dependent` ADD CONSTRAINT `Dependent_fk0` FOREIGN KEY (`MEID`) REFERENCES `Member`(`Member ID`);
+
+ALTER TABLE `Team` ADD CONSTRAINT `Team_fk0` FOREIGN KEY (`SPID`) REFERENCES `Sport`(`Sport ID`);
+
+ALTER TABLE `Team` ADD CONSTRAINT `Team_fk1` FOREIGN KEY (`Coach ID`) REFERENCES `Employee`(`Employee ID`);
+
+ALTER TABLE `Employee` ADD CONSTRAINT `Employee_fk0` FOREIGN KEY (`subervisor`) REFERENCES `Employee`(`Employee ID`);
+
+ALTER TABLE `Trip` ADD CONSTRAINT `Trip_fk0` FOREIGN KEY (`SupervisorID`) REFERENCES `Employee`(`Employee ID`);
+
+ALTER TABLE `Travel` ADD CONSTRAINT `Travel_fk0` FOREIGN KEY (`MEID`) REFERENCES `Member`(`Member ID`);
+
+ALTER TABLE `Travel` ADD CONSTRAINT `Travel_fk1` FOREIGN KEY (`TRID`) REFERENCES `Trip`(`Trip ID`);
+
+ALTER TABLE `Party` ADD CONSTRAINT `Party_fk0` FOREIGN KEY (`OrganizerID`) REFERENCES `Employee`(`Employee ID`);
+
+ALTER TABLE `Training` ADD CONSTRAINT `Training_fk0` FOREIGN KEY (`TEID`) REFERENCES `Team`(`Team ID`);
+
+ALTER TABLE `Training` ADD CONSTRAINT `Training_fk1` FOREIGN KEY (`ZOID`) REFERENCES `Zone`(`Zone ID`);
+
+ALTER TABLE `Zone Sport` ADD CONSTRAINT `Zone Sport_fk0` FOREIGN KEY (`ZOID`) REFERENCES `Zone`(`Zone ID`);
+
+ALTER TABLE `Zone Sport` ADD CONSTRAINT `Zone Sport_fk1` FOREIGN KEY (`SPID`) REFERENCES `Sport`(`Sport ID`);
+
+ALTER TABLE `Match` ADD CONSTRAINT `Match_fk0` FOREIGN KEY (`TOID`) REFERENCES `Tournament`(`Tournament ID`);
+
+ALTER TABLE `Match` ADD CONSTRAINT `Match_fk1` FOREIGN KEY (`SPID`) REFERENCES `Sport`(`Sport ID`);
+
+ALTER TABLE `Match` ADD CONSTRAINT `Match_fk2` FOREIGN KEY (`F Team ID`) REFERENCES `Team`(`Team ID`);
+
+ALTER TABLE `Match` ADD CONSTRAINT `Match_fk3` FOREIGN KEY (`S Team ID`) REFERENCES `Team`(`Team ID`);
+
+ALTER TABLE `Match` ADD CONSTRAINT `Match_fk4` FOREIGN KEY (`ZOID`) REFERENCES `Zone`(`Zone ID`);
+
+ALTER TABLE `Compete` ADD CONSTRAINT `Compete_fk0` FOREIGN KEY (`TOID`) REFERENCES `Tournament`(`Tournament ID`);
+
+ALTER TABLE `Compete` ADD CONSTRAINT `Compete_fk1` FOREIGN KEY (`TEID`) REFERENCES `Team`(`Team ID`);
+
+ALTER TABLE `Tournament` ADD CONSTRAINT `Tournament_fk0` FOREIGN KEY (`SPID`) REFERENCES `Sport`(`Sport ID`);
+
+
+
+show tables;
+
+DROP DATABASE db;
+
+
+
+
+
+
