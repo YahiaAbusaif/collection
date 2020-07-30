@@ -1,0 +1,29 @@
+enter the msg
+enter DES config only one of (ECB,CBC,CFB or CTR) , make sure that all letter are capital
+ur message is: 
+hello i am computer engineering student and i want to learn how to bake cake  and ur mode is:  ECB
+enter the key for DES
+enter the hmac key 
+enter the Block size 
+Key is: b'ABCDEFGH' mode is ECB hkey is: hello and block size is : 8
+trying to connect with reciver
+connection is completed
+sent:  b"0\x188\x19\xcd)o\x9b\xca\x04/\x89\x18\xb5&l\xea\x89}Fd\x0e\xb9?\xe7\x17\x9d\xd0_N\xf4'\x8f\x8du\xe54\xb4= \xa3\x86\xc6\xb4\xfd\x88\xcc\xebz\xa8\x07kK\xc9\x19\xa9Q^\xaf\x91d\x80Q\xfa\xe8\x95b\x05w\x10d\xc0\xa6\x948\x91U@\xc7\xe1 f5df6a0d2220ba70183b2d8516792f11"
+total time for only processes (without connection and input time) 0.0149993896484375
+bye bye
+##############################
+trying to connect
+connection is success
+waiting for config msg
+recived msg is : ECB ABCDEFGH hello 8 
+Key is: ABCDEFGH mode is ECB hkey is: hello and block size is : 8
+waiting for new msg
+recived msg is : b"0\x188\x19\xcd)o\x9b\xca\x04/\x89\x18\xb5&l\xea\x89}Fd\x0e\xb9?\xe7\x17\x9d\xd0_N\xf4'\x8f\x8du\xe54\xb4= \xa3\x86\xc6\xb4\xfd\x88\xcc\xebz\xa8\x07kK\xc9\x19\xa9Q^\xaf\x91d\x80Q\xfa\xe8\x95b\x05w\x10d\xc0\xa6\x948\x91U@\xc7\xe1 f5df6a0d2220ba70183b2d8516792f11"
+original text: hello i am computer engineering student and i want to learn how to bake cake    
+correct mac
+total time for only processes  0.011982917785644531
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg

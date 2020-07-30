@@ -1,0 +1,28 @@
+enter the msg
+enter DES config only one of (ECB,CBC,CFB or CTR) , make sure that all letter are capital
+* Invalid input.. I choose ECB for u no need to thx me XD
+ur message is: hi  and ur mode is:  ECB
+enter the key for DES
+enter the hmac key 
+enter the Block size 
+Key is: b'ABCDEFGH' mode is ECB hkey is: donot and block size is : 16
+trying to connect with reciver
+connection is completed
+sent:  b".\xfeuOp\x91\x953\x0ep\xd3\x89b'\x8a\x12 6d48760361139679d2e8bd63c71a0345"
+total time for only processes (without connection and input time) 0.001983165740966797
+bye bye
+##############################################
+trying to connect
+connection is success
+waiting for config msg
+recived msg is : ECB ABCDEFGH donot 16 
+Key is: ABCDEFGH mode is ECB hkey is: donot and block size is : 16
+waiting for new msg
+recived msg is : b".\xfeuOp\x91\x953\x0ep\xd3\x89b'\x8a\x12 6d48760361139679d2e8bd63c71a0345"
+original text: hi              
+correct mac
+total time for only processes  0.0020093917846679688
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg

@@ -1,0 +1,25 @@
+enter the msg
+enter DES config only one of (ECB,CBC,CFB or CTR) , make sure that all letter are capital
+ur message is: hello i am computer engineering student and i want to learn how to bake cake  and ur mode is:  CTR
+enter the key for DES
+enter the hmac key 
+enter the Block size 
+Key is: b'hahahaha' mode is CTR hkey is: gigigigi and block size is : 8
+trying to connect to server
+connection is completed
+sent:  b'C\x11\xbb\xb6\x11\xc1\x1b\x0e\x8eN\x1b\xfd\xc1\x06\x05d\xach\xb6\x1dO\x95v!F\xacOc\xf4\xa7L|\xd0lat\x96\xce{S\xd0\xec\xbf\xbeoo\xf9\xdcXv\x87,W\xa5\xc0+S\x8a;\x9a\xcbC\xc0\xf8"C\xe5\x93\xb0\xd2\x8a\xec\xc3\xe5\xa7\xdb\x8f\xa5\x03\x83 25f75057cf51811794c3ccfdc9bbd6d7'
+total time for only processes (without connection and input time) 0.010984659194946289
+bye bye
+###############################################################
+trying to connect
+connection is success
+waiting for config msg
+recived msg is : CTR hahahaha gigigigi 8 
+Key is: hahahaha mode is CTR hkey is: gigigigi and block size is : 8
+waiting for new msg
+recived msg is : b'C\x11\xbb\xb6\x11\xc1\x1b\x0e\x8eN\x1b\xfd\xc1\x06\x05d\xach\xb6\x1dO\x95v!F\xacOc\xf4\xa7L|\xd0lat\x96\xce{S\xd0\xec\xbf\xbeoo\xf9\xdcXv\x87,W\xa5\xc0+S\x8a;\x9a\xcbC\xc0\xf8"C\xe5\x93\xb0\xd2\x8a\xec\xc3\xe5\xa7\xdb\x8f\xa5\x03\x83 25f75057cf51811794c3ccfdc9bbd6d7'
+original text: hello i am computer engineering student and i want to learn how to bake cake    
+correct mac
+total time for only processes  0.00800466537475586
+waiting for new msg
+waiting for new msg

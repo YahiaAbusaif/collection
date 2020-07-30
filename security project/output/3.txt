@@ -1,0 +1,23 @@
+enter the msg
+enter DES config only one of (ECB,CBC,CFB or CTR) , make sure that all letter are capital
+ur message is: hello i am computer engineering student and i want to learn how to bake cake  and ur mode is:  CFB
+enter the key for DES
+enter the hmac key 
+enter the Block size 
+Key is: b'ABCDEFGH' mode is CFB hkey is: AAAAAAAA and block size is : 8
+trying to connect with reciver
+connection is completed
+sent:  b"S\xf6\xc1\x11PY\xde\xba\x00w\xb6\xf2\xd6\xa3\x1f\xa7\x11}\x00\x02\x1c\tVM'*4\xbb`\x8b\x9f\xc0\xb5\xe6<\xf5k\xb0.f\xe4\x8d\x99H\xc8\x8dL\xd4Z\x8a-\xf1\xd8B\xc8\xccx\r\x97\x84k\xa7\xbe,\xc3\x8fdw<\xf1\x83\xda\xa6\xb7@I\x00\x87\xd4, 5b78c560b37648db1801b4d2de9c54c7"
+total time for only processes (without connection and input time) 0.011010408401489258
+bye bye
+###################################################
+trying to connect
+connection is success
+waiting for config msg
+recived msg is : CFB ABCDEFGH AAAAAAAA 8 
+Key is: ABCDEFGH mode is CFB hkey is: AAAAAAAA and block size is : 8
+waiting for new msg
+recived msg is : b"S\xf6\xc1\x11PY\xde\xba\x00w\xb6\xf2\xd6\xa3\x1f\xa7\x11}\x00\x02\x1c\tVM'*4\xbb`\x8b\x9f\xc0\xb5\xe6<\xf5k\xb0.f\xe4\x8d\x99H\xc8\x8dL\xd4Z\x8a-\xf1\xd8B\xc8\xccx\r\x97\x84k\xa7\xbe,\xc3\x8fdw<\xf1\x83\xda\xa6\xb7@I\x00\x87\xd4, 5b78c560b37648db1801b4d2de9c54c7"
+original text: hello i am computer engineering student and i want to learn how to bake cake    
+correct mac
+total time for only processes  0.009991645812988281

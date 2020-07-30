@@ -1,0 +1,37 @@
+enter the msg
+enter DES config only one of (ECB,CBC,CFB or CTR) , make sure that all letter are capital
+ur message is: hello i am computer engineering student and i want to learn how to bake cake  and ur mode is:  CBC
+enter the key for DES
+enter the hmac key 
+enter the Block size
+Key is: b'AAAAAAAA' mode is CBC hkey is: AAAAAAAA and block size is : 8
+trying to connect with reciver
+connection is completed
+sent:  b'\x86q\x0f\x91\xf3d\xce\x16x\xe5\xd2[\xc4\x98\x85\x11\x16\x12\xdae\xe4*<*\xd6\xa3\xa8\xa3w77\xfc\x0e\xe80\xf2\xae3Wx\xc9O\xc5\x17\x98\x9e\x84\xee~\x98=s\x99m\x07[\xa7\x97d\xf7\xbc\xec\xc4\xac\xd7\xd4\xad\xed\x1c\xf9\xbf\xfc,\xc4\x1f\x87\xe9\x9f\x15} 5b78c560b37648db1801b4d2de9c54c7'
+total time for only processes (without connection and input time) 0.008987903594970703
+bye bye
+########################################
+trying to connect
+connection is success
+waiting for config msg
+recived msg is : CBC AAAAAAAA AAAAAAAA 8 
+Key is: AAAAAAAA mode is CBC hkey is: AAAAAAAA and block size is : 8
+waiting for new msg
+recived msg is : b'\x86q\x0f\x91\xf3d\xce\x16x\xe5\xd2[\xc4\x98\x85\x11\x16\x12\xdae\xe4*<*\xd6\xa3\xa8\xa3w77\xfc\x0e\xe80\xf2\xae3Wx\xc9O\xc5\x17\x98\x9e\x84\xee~\x98=s\x99m\x07[\xa7\x97d\xf7\xbc\xec\xc4\xac\xd7\xd4\xad\xed\x1c\xf9\xbf\xfc,\xc4\x1f\x87\xe9\x9f\x15} 5b78c560b37648db1801b4d2de9c54c7'
+original text: hello i am computer engineering student and i want to learn how to bake cake    
+correct mac
+total time for only processes  0.008997678756713867
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
+waiting for new msg
